@@ -3,7 +3,7 @@
 ## Quick Start
 
 ```sh
-# get to the home folde
+# get to the home folder
 $ cd 
 # pull the source
 $ git clone git@github.com:htr3n/zsh-config.git .zsh-config
