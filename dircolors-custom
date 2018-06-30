@@ -1,0 +1,226 @@
+# vim: ft=dircolors:fdm=marker:et:sw=2:
+
+#
+# See:
+#		https://unix.stackexchange.com/a/94306/27109
+#		"The format for 256 color escape codes is 38;5;colorN for foreground colors and 48;5;colorN for background colors."
+# 		https://github.com/trapd00r/LS_COLORS
+#		http://linux-sxs.org/housekeeping/lscolors.html
+#
+# Needs dircolors/gdircolors from GNU coreutils
+# brew info coreutils
+
+DIR 		01;34 					# directory
+LINK 		target
+SOCK 		01;35 					# socket
+MISSING 	00
+SETUID 		37;41
+SETGID 		30;43
+CAPABILITY 	30;41
+
+
+*README               38;5;220;1
+*README.rst           38;5;220;1
+*LICENSE              38;5;220;1
+*COPYING              38;5;220;1
+*INSTALL              38;5;220;1
+*COPYRIGHT            38;5;220;1
+*AUTHORS              38;5;220;1
+*HISTORY              38;5;220;1
+*CONTRIBUTORS         38;5;220;1
+*PATENTS              38;5;220;1
+*VERSION              38;5;220;1
+*NOTICE               38;5;220;1
+*CHANGES              38;5;220;1
+
+
+.log                  38;5;190
+.txt                  38;5;253
+
+# markup {{{2
+.info                 38;5;184
+.markdown             38;5;184
+.md                   38;5;184
+.mmd                  38;5;184
+
+# docs, images
+
+.chm                  38;5;151
+.djvu                 38;5;141
+.pdf                  38;5;141
+.PDF                  38;5;141
+.epub                 38;5;131
+.doc                  38;5;111
+.docx                 38;5;111
+.eps                  38;5;111
+.ps                   38;5;111
+.rtf                  38;5;111
+.pps                  38;5;166
+.ppt                  38;5;166
+.pptx                 38;5;166
+.xls                  38;5;112
+.xlsx                 38;5;112
+.xltx                 38;5;73
+.jpeg                 38;5;87
+.JPG                  38;5;87
+.jpg                  38;5;87
+
+
+# version control {{{2
+.git                  38;5;197
+.gitignore            38;5;240
+.gitattributes        38;5;240
+.gitmodules           38;5;240
+
+# shell {{{2
+.awk                  38;5;170
+.bash                 38;5;171
+.sh                   38;5;172
+.vim                  38;5;173
+*conf                 38;5;174
+*rc                   38;5;175
+.login                38;5;176
+.logout               38;5;177
+.zsh                  38;5;180
+
+
+# python
+.py                   38;5;41
+
+# perl
+.pl                   38;5;208
+.PL                   38;5;160
+
+# SQL
+.msql                 38;5;222
+.mysql                38;5;222
+.pgsql                38;5;222
+.sql                  38;5;222
+.sqlite               38;5;60
+
+# Python
+.py                   38;5;41
+.pyc                  38;5;240
+
+# Web
+.js                   38;5;074
+.css                  38;5;125
+.less                 38;5;125
+.sass                 38;5;125
+.scss                 38;5;125
+.htm                  38;5;125
+.html                 38;5;125
+.json                 38;5;178
+.xml                  38;5;178
+.yml                  38;5;178
+.php                  38;5;81
+.coffee               38;5;074
+.htaccess             38;5;230
+
+#   CakePHP view scripts and helpers
+.ctp                  38;5;81
+#   Twig template engine
+.twig                 38;5;81
+
+
+# JAVA
+.java                 38;5;074
+.jsp                  38;5;074
+
+# Build stuff {{{2
+*Dockerfile           38;5;155
+.dockerignore         38;5;240
+*Makefile             38;5;155
+*Makefile             38;5;155
+*MANIFEST             38;5;243
+
+  # packaged apps {{{2
+.apk                  38;5;215
+.jad                  38;5;215
+.jar                  38;5;215
+
+# partition images {{{2
+.dmg                  38;5;124
+.sparseimage          38;5;124
+.dmg                  38;5;215
+
+
+# state files
+.pid                  38;5;248
+.state                38;5;248
+*lockfile             38;5;248
+.lock                 38;5;241
+*composer.lock        38;5;96
+*lock.json            38;5;96
+*components*          38;5;241
+
+# state dumps
+.dump                 38;5;241
+.stackdump            38;5;241
+.zcompdump            38;5;241
+.zwc                  38;5;241
+
+# macOS
+.DS_Store             38;5;239
+.localized            38;5;239
+.CFUserTextEncoding   38;5;239
+
+.md5                  38;5;116
+.properties           38;5;116
+.torrent              38;5;116
+
+# RStudio project file
+.Rproj                38;5;11
+
+# archives {{{1
+.7z                   38;5;210
+.bz2                  38;5;210
+.gz                   38;5;210
+.lzma                 38;5;210
+.rar                  38;5;210
+.tar                  38;5;210
+.tgz                  38;5;210
+.zip                  38;5;210
+
+
+# 0 = default colour
+# 1 = bold
+# 4 = underlined
+# 5 = flashing text
+# 6 = no change
+# 7 = reverse field
+# 8 = black
+# 9 = strikethrough (cool!)
+# 10 - 29= no change
+# 30 = light green
+# 31 = red
+# 32 = green
+# 33 = orange
+# 34 = blue
+# 35 = purple
+# 36 = cyan
+# 37 = grey
+# 38 = underline
+# 39 = no change
+# 40 = black background
+# 41 = red background
+# 42 = green background
+# 43 = orange background
+# 44 = blue background
+# 45 = purple background
+# 46 = cyan background
+# 47 = grey background
+# 90 = dark grey
+# 91 = light red
+# 92 = light green
+# 93 = yellow
+# 94 = light blue
+# 95 = light purple
+# 96 = turquoise
+# 100 = dark grey background
+# 101 = light red background
+# 102 = light green background
+# 103 = yellow background
+# 104 = light blue background
+# 105 = light purple background
+# 106 = turquoise background
