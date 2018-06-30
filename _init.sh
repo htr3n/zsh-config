@@ -65,7 +65,7 @@ fi
 
 #
 # Some private stuffs, if any 
-quiet_check_and_source ${SCRIPTS}/private.sh
+quiet_check_and_source ${HOME}/.private.sh
 
 #-----------------------------------------------------
 # zsh-syntax-highlighting must be sourced at the very end
