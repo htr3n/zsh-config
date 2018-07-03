@@ -2,9 +2,9 @@
 # vim:filetype=sh
 
 # Check if running on macOS, otherwise stop here
-[[ ! "$OSTYPE" == darwin* ]] && return 
+[[ ! "$OSTYPE" == darwin* ]] && return
 
-# /etc/zprofile is loaded and invokes 
+# /etc/zprofile is loaded and invokes
 # /usr/libexec/path_helper that might slow down start-up.
 # Better enter directly the content of /etc/paths.d here
 
@@ -19,9 +19,8 @@ export PATH=$PATH:/usr/local/MacGPG2/bin
 # brew info coreutils
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
-# launchctl PATH environment
 # Home-made scripts
-export PATH=$PATH:${HOME}/bin
+export PATH=$PATH:${HOME}/.bin
 
 #
 # ps
@@ -46,7 +45,7 @@ alias sys.uti.reset='lsregister -kill -r -domain local -domain system -domain us
 alias sys.uti.file='mdls -name kMDItemContentTypeTree '
 
 #
-# OS X's launchctl 
+# OS X's launchctl
 #
 alias launch.list='launchctl list '
 alias launch.load='launchctl load '
@@ -89,7 +88,7 @@ function sys.pkg.rm (){
 
 function sys.pkg.files (){
 	if [[ $# > 0 ]]; then
-		pkgutil --files $1 
+		pkgutil --files $1
 	else
 		echo "$0 name.pkg"
 	fi

@@ -5,7 +5,8 @@
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # When Cellar and TEMP directories are on different volumes,
-# OS X won't move relative symlinks across volumes unless the # target file already exists. Brews known to be affected by 
+# OS X won't move relative symlinks across volumes unless the
+# target file already exists. Brews known to be affected by
 # this are Git and Narwhal.
 
 # export HOMEBREW_TEMP=$HOME/tmp
@@ -20,13 +21,14 @@ export HOMEBREW_NO_ANALYTICS=1
 # Homebrew will not auto-update before running brew install/upgrade/tap.
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-alias brew.cask='brew cask '
-alias brew.cask.cleanup='brew cask cleanup'
-alias brew.cask.doctor='brew cask doctor'
-alias brew.cask.search='brew cask search'
-alias brew.cask.install='brew cask install'
-alias brew.cask.uninstall='brew cask uninstall'
-alias brew.cask.zap='brew cask zap'
+
+alias cask='brew cask '
+alias cask.cleanup='cask cleanup'
+alias cask.doctor='cask doctor'
+alias cask.search='cask search'
+alias cask.install='cask install'
+alias cask.uninstall='cask uninstall'
+alias cask.zap='cask zap'
 
 alias brew.edit='brew edit '
 alias brew.cat='brew cat '
@@ -63,3 +65,19 @@ function homebrew.install(){
 function homebrew.uninstall(){
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 }
+
+BUNDLE_FILE=${ZSHCONFIG}/Brewfile
+
+function brew.backup(){
+    echo "Backing up Homebrew installation ..."
+    ( cd $ZSHCONFIG; brew tap Homebrew/bundle; brew bundle dump --force )
+    echo "Done!"
+}
+
+function brew.restore(){
+    echo "Restoring Homebrew installation"
+    ( cd $ZSHCONFIG; brew bundle )
+    echo "Done!"
+}
+
+

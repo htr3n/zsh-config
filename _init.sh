@@ -67,6 +67,12 @@ fi
 # Some private stuffs, if any 
 quiet_check_and_source ${HOME}/.private.sh
 
+#
+# direnv
+# https://github.com/direnv/direnv
+# brew install direnv
+eval "$(direnv hook zsh)"
+
 #-----------------------------------------------------
 # zsh-syntax-highlighting must be sourced at the very end
 #

@@ -108,6 +108,9 @@ fpath=(${ZSHCONFIG}/zsh-completions/src $fpath)
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 check_and_source ${ZDOTDIR:-$HOME}/.fzf.zsh
 
+# https://github.com/nvbn/thefuck
+eval $(thefuck --alias)
+
 #
 # Turn off warning "file exists" when overriding by >
 #
