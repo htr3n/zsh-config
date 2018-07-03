@@ -2,6 +2,13 @@
 # vim:syntax=zsh
 # vim:filetype=zsh
 
+# http://zshwiki.org/home/config/prompt
+# enable colors
+autoload -U colors && colors
+
+# load the theme system
+autoload -U promptinit && promptinit
+
 # -----------------------------------------------
 # PROMPT COLORS
 # -----------------------------------------------
@@ -59,7 +66,6 @@ at_strikeoff=%{$'\e[29m'%}
 #
 # Customize the prompt
 #
-
 export RPROMPT='$(git_prompt_info)%{$fg_bold[blue]%} % %b %{$reset_color%}'
 
 # for dynamic named directories
@@ -83,6 +89,7 @@ ${current_datetime} - ${user_host} [${current_dir}] ${the_prompt_sign} "
  
 # precmd is called just before the prompt is printed
 precmd () {
+  RPROMPT=""
   print -Pn "\e]2; %~/ \a"
 }
 # preexec is called just before any command line is executed
@@ -92,6 +99,7 @@ preexec () {
 
 setopt prompt_subst
 
+# 
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' actionformats \
@@ -109,4 +117,15 @@ vcs_info_wrapper() {
     echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
   fi
 }
-export RPROMPT=$'$(vcs_info_wrapper)'
+
+# prompt for vi mode
+function zle-line-init zle-keymap-select {
+    RPROMPT=""
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
+    RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(vcs_info_wrapper) $EPS1"
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+#export RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(vcs_info_wrapper) $EPS1"

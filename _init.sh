@@ -8,37 +8,34 @@
 export SCRIPTS=${HOME}/scripts
 
 function check_and_source(){
-	if [[ -f "$1" ]]; then 
+	if [[ -f "$1" ]]; then
 		source "$1"
 	else
-		echo "Sourced file $1 does not exist."
+		echo "Could not source file $1."
 	fi
 	return
 }
 
 function quiet_check_and_source(){
-	if [[ -f "$1" ]]; then 
-		source "$1"
-    fi
+	[[ -f "$1" ]] && source "$1"
 }
 
 #-----------------------------------------------------
-# check whether a command exists, 
+# check whether a command exists,
 # if exists, return 0, otherwise return -1
 function command_exists(){
     if [[ $# -ne 1 ]]; then
         echo "Usage $0 command"
     else
         command -v $1 >/dev/null 2>&1 && echo "YES" && return 0
-    fi    
-    return -1 
+    fi
+    return -1
 }
 
 #-----------------------------------------------------
 check_and_source ${ZSHCONFIG}/completion.sh
 check_and_source ${ZSHCONFIG}/dropbox.sh
 check_and_source ${ZSHCONFIG}/homebrew.sh
-check_and_source ${ZSHCONFIG}/keybindings.sh
 check_and_source ${ZSHCONFIG}/macos.sh
 check_and_source ${ZSHCONFIG}/prompts.sh
 check_and_source ${ZSHCONFIG}/system.sh
@@ -58,13 +55,13 @@ check_and_source ${SCRIPTS}/dev-config/_init.sh
 check_and_source ${ZSHCONFIG}/zsh-custom.sh
 
 #-----------------------------------------------------
-# after all, set the PATH for macOS 
+# after all, set the PATH for macOS
 if [[ -x /bin/launchctl ]]; then
     /bin/launchctl setenv PATH $PATH
 fi
 
 #
-# Some private stuffs, if any 
+# Some private stuffs, if any
 quiet_check_and_source ${HOME}/.private.sh
 
 #
