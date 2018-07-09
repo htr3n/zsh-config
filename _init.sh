@@ -35,7 +35,6 @@ function command_exists(){
 #-----------------------------------------------------
 check_and_source ${ZSHCONFIG}/completion.sh
 check_and_source ${ZSHCONFIG}/dropbox.sh
-check_and_source ${ZSHCONFIG}/homebrew.sh
 check_and_source ${ZSHCONFIG}/macos.sh
 check_and_source ${ZSHCONFIG}/prompts.sh
 check_and_source ${ZSHCONFIG}/system.sh
@@ -68,7 +67,7 @@ quiet_check_and_source ${HOME}/.private.sh
 # direnv
 # https://github.com/direnv/direnv
 # brew install direnv
-eval "$(direnv hook zsh)"
+#eval "$(direnv hook zsh)"
 
 #-----------------------------------------------------
 # zsh-syntax-highlighting must be sourced at the very end

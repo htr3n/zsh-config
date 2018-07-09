@@ -3,12 +3,12 @@
 # vim:filetype=zsh
 
 #
-# check whether zsh is use 
+# check whether zsh is use
 # (https://stackoverflow.com/a/9911082/339302)
 [ ! -n "$ZSH_VERSION" ] && return
 
 #########################################################################################
-# Learn from 
+# Learn from
 # https://github.com/sorin-ionescu/prezto/blob/master/modules/completion/init.zsh
 #
 # Options
@@ -23,6 +23,14 @@ setopt EXTENDED_GLOB       # Needed for file modification glob modifiers with co
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
 
+# Using zstyle
+# https://unix.stackexchange.com/a/214699
+
+# completion for the middle of filenames
+# https://stackoverflow.com/a/22627273
+# https://unix.stackexchange.com/a/259511
+zstyle ':completion:*' completer _complete
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
 # Use caching to make completion for commands such as dpkg and apt usable.
 zstyle ':completion::complete:*' use-cache on

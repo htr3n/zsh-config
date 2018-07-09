@@ -8,6 +8,7 @@
 #
 update() {
 	local brew="echo ; echo 'UPDATING HOMEBREW'; echo ; brew update; brew upgrade; brew cleanup;"
+	local cask="echo ; echo 'UPDATING CASK'; echo ; brew cask upgrade; "
 	local fzf="echo ; echo 'UPDATING fzf'; echo ; (cd ~/.fzf; git pull);"
 	#local zsh_autosuggestions="echo ; echo 'UPDATING zsh-autosuggestions'; echo ; cd ${ZSHCONFIG}/zsh-autosuggestions; git pull;"
 	#local zsh_history_substring_search="echo ; echo 'UPDATING zsh-history-substring-search'; echo ; cd ${ZSHCONFIG}/zsh-history-substring-search; git pull;"
@@ -17,5 +18,5 @@ update() {
 	#local gem="gem update;"
 	#local pip3="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U -q"
 	local zshconfig="echo ; echo 'UPDATING ZSH-CONFIG'; echo ; cd ${HOME}/.zsh-config; git pull && git submodule update --init --recursive ;"
-	sh -c $brew$fzf$zshconfig
+	sh -c $brew$cask$fzf$zshconfig
 }

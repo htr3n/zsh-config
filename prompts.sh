@@ -70,11 +70,11 @@ export RPROMPT='$(git_prompt_info)%{$fg_bold[blue]%} % %b %{$reset_color%}'
 
 # for dynamic named directories
 #setopt prompt_subst
-setopt auto_name_dirs 
+setopt auto_name_dirs
 
 local prompt_suffix='%{$reset_color%}'
 local current_dir='${fg_purple}%~%f%{$reset_color%}'
-local user_host='%B${fg_lgreen}%n%{$reset_color%}${fg_pink}@${fg_lcyan}%m%b%f${prompt_suffix}'
+local user_host='%B${fg_lgreen}%n%{$reset_color%}${fg_pink}@${fg_lcyan}%M%b%f${prompt_suffix}'
 local current_datetime='${fg_blue}%D{%d.%m.%Y} ${fg_red}%T%f${prompt_suffix}'
 local the_prompt_sign='%b
 $fg[105]»%f${prompt_suffix}'
@@ -86,7 +86,7 @@ $fg[105]»%f${prompt_suffix}'
 #$fg[105]»%{$reset_color%} '
 export PROMPT="
 ${current_datetime} - ${user_host} [${current_dir}] ${the_prompt_sign} "
- 
+
 # precmd is called just before the prompt is printed
 precmd () {
   RPROMPT=""
@@ -99,7 +99,7 @@ preexec () {
 
 setopt prompt_subst
 
-# 
+#
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' actionformats \

@@ -31,19 +31,30 @@ alias ps.a='ps -A'
 #
 # scutil
 #
-alias sys.name.computer='scutil --get ComputerName'
-alias sys.name.localhost='scutil --get LocalHostName'
-alias sys.name.host='scutil --get HostName'
-alias sys.dns='scutil --dns'
-alias sys.proxy='scutil --proxy'
-alias sys.network='scutil --nwi'
-alias sys.name.change='sudo systemsetup -setcomputername'
+alias sys.get.computername='scutil --get ComputerName'
+alias sys.get.localhostname='scutil --get LocalHostName'
+alias sys.get.hostname='scutil --get HostName'
+alias sys.get.dns='scutil --dns'
+alias sys.get.proxy='scutil --proxy'
+alias sys.get.network.interface='scutil --nwi'
+#alias sys.set.computer.name='sudo systemsetup -setcomputername'
+
+function sys.set.name(){
+    if [[ $# -eq 0 ]]; then
+        echo "Usage $0 <hostname>"
+        return
+    else
+        sudo scutil --set ComputerName "$1"
+        sudo scutil --set LocalHostName "$1"
+        sudo scutil --set HostName "$1"
+    fi
+}
 
 #
-alias lsregister='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister'
 alias sys.uti.reset='lsregister -kill -r -domain local -domain system -domain user ; killall Dock'
 alias sys.uti.file='mdls -name kMDItemContentTypeTree '
 
+alias lsregister='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister'
 #
 # OS X's launchctl
 #
@@ -109,14 +120,29 @@ function sys.pkg.list (){
 #
 # Change screenshot formats
 #
+
 function sys.screenshot.pdf(){
-   defaults write com.apple.screencapture type PDF; killall SystemUIServer
+   defaults write com.apple.screencapture type pdf; killall SystemUIServer
 }
+
 function sys.screenshot.png(){
-   defaults write com.apple.screencapture type PNG; killall SystemUIServer
+   defaults write com.apple.screencapture type png; killall SystemUIServer
 }
+
+function sys.screenshot.jpeg(){
+   defaults write com.apple.screencapture type jpg; killall SystemUIServer
+}
+
+function sys.screenshot.jpeg200(){
+   defaults write com.apple.screencapture type jp2; killall SystemUIServer
+}
+
+function sys.screenshot.read(){
+   defaults read com.apple.screencapture
+}
+
 function sys.screenshot.tiff(){
-   defaults write com.apple.screencapture type TIFF; killall SystemUIServer
+   defaults write com.apple.screencapture type tiff; killall SystemUIServer
 }
 
 #

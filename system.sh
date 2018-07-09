@@ -6,7 +6,7 @@
 # Note that macOS specifics are separate in macos.sh
 
 # system executables
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec
+#export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec
 
 
 alias ps.ef='ps -ef'
@@ -86,8 +86,8 @@ alias ls='/usr/local/bin/gls --color=auto'
 alias ll='ls -lFh'     			# long (-l), types classify (-F),human readable (-h)
 alias l='ll'
 alias ls.all='ls -lAFh' 		# long list, show almost all
-alias ls.sort.time='ls -tlFh'  
-alias ls.sort.size='ls -SlFh'  
+alias ls.sort.time='ls -tlFh'
+alias ls.sort.size='ls -SlFh'
 alias ls.dot='ls -ld .*'		# show dot files, list dirs non-recursively (-d)
 alias ls.recursive='ls -R'
 alias ls.id='ls -nFh'			# show numeric FID and GID (-n)
@@ -218,7 +218,7 @@ cdf() {
 }
 
 # -------------------------------------------------------------------
-# display a neatly formatted PATH content
+# display a neatly formatted PATH content with colors
 # -------------------------------------------------------------------
 path() {
   echo $PATH | tr ":" "\n" | \
@@ -234,6 +234,6 @@ path() {
 # nice mount (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
 # displays mounted drive information in a nicely formatted manner
 # -------------------------------------------------------------------
-function nicemount() { 
-	(echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; 
+function nicemount() {
+	(echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ;
 }

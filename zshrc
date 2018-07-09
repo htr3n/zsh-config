@@ -12,3 +12,5 @@ else
     echo "Could not find the init script ${ZSH_INIT}"
 fi
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
