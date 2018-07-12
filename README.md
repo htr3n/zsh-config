@@ -8,7 +8,7 @@ $ cd
 # pull the git repos
 $ git clone git@github.com:htr3n/zsh-config.git .zsh-config
 # then link the startup files
-$ .zsh-config/bootstrap
+$ sh ~/.zsh-config/bootstrap
 ```
 
 Log out and login again!!!

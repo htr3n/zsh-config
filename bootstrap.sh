@@ -1,8 +1,8 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 # vim:syntax=sh
 # vim:filetype=sh
 
-function zsh-bootstrap(){
+function zsh_bootstrap(){
     echo "Link resource files to ${HOME}"
     ln -sf ${ZSHCONFIG}/zlogin ${HOME}/.zlogin
     ln -sf ${ZSHCONFIG}/zprofile ${HOME}/.zprofile
@@ -11,10 +11,10 @@ function zsh-bootstrap(){
     echo "Done!"
 }
 
-function zsh-cleanup(){
+function zsh_cleanup(){
     echo "Clean up links to resource files at ${HOME}"
     rm -f ${HOME}/.zlogin ${HOME}/.zprofile ${HOME}/.zshenv ${HOME}/.zshrc
     echo "Done!"
 }
 
-zsh-bootstrap
+zsh_bootstrap
