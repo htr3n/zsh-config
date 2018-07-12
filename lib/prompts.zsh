@@ -3,17 +3,22 @@
 # vim:filetype=zsh
 
 # http://zshwiki.org/home/config/prompt
-# enable colors
+# enable colors and predefined variables
 autoload -U colors && colors
+#reset_color=%{$'\e[00m'%}
 
 # load the theme system
 autoload -U promptinit && promptinit
 
 # -----------------------------------------------
-# PROMPT COLORS
-# -----------------------------------------------
-# Color table from: http://www.understudy.net/custom.html
+# for dynamic named directories
+setopt prompt_subst
+setopt auto_name_dirs
 
+# -----------------------------------------------
+# PROMPT COLORS
+#
+# Color table from: http://www.understudy.net/custom.html
 export CLICOLOR=1
 
 fg_black=%{$'\e[0;30m'%}
@@ -60,30 +65,13 @@ at_reverseoff=%{$'\e[27m'%}
 at_strikeoff=%{$'\e[29m'%}
 
 
-# check whether zsh is use (https://stackoverflow.com/a/9911082/339302)
-[ ! -n "$ZSH_VERSION" ] && return
-
-#
-# Customize the prompt
-#
-export RPROMPT='$(git_prompt_info)%{$fg_bold[blue]%} % %b %{$reset_color%}'
-
-# for dynamic named directories
-#setopt prompt_subst
-setopt auto_name_dirs
-
 local prompt_suffix='%{$reset_color%}'
 local current_dir='${fg_purple}%~%f%{$reset_color%}'
 local user_host='%B${fg_lgreen}%n%{$reset_color%}${fg_pink}@${fg_lcyan}%M%b%f${prompt_suffix}'
 local current_datetime='${fg_blue}%D{%d.%m.%Y} ${fg_red}%T%f${prompt_suffix}'
 local the_prompt_sign='%b
 $fg[105]»%f${prompt_suffix}'
-#export PROMPT='
-#${fg_blue}%D{%d.%m.%Y} %T ${fg_white}-%B ${fg_lgreen}%n%{$reset_color%}@${fg_lcyan}%m${fg_white} [${fg_purple}%~${fg_white}] %b
-#$fg[105]»%{$reset_color%} '
-#export PROMPT='
-#${fg_blue}%D{%d.%m.%Y} %T ${fg_white}-%B ${fg_lgreen}%n%{$reset_color%}@${fg_lcyan}%m${fg_white} [${fg_purple}%1d${fg_white}] %b
-#$fg[105]»%{$reset_color%} '
+
 export PROMPT="
 ${current_datetime} - ${user_host} [${current_dir}] ${the_prompt_sign} "
 
@@ -96,8 +84,6 @@ precmd () {
 preexec () {
   print -Pn "\e]2; %~/ \a"
 }
-
-setopt prompt_subst
 
 #
 autoload -Uz vcs_info
@@ -128,4 +114,8 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-#export RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(vcs_info_wrapper) $EPS1"
+unset current_datetime
+unset current_dir
+unset prompt_suffix
+unset the_prompt_sign
+unset user_host

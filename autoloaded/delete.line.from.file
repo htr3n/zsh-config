@@ -1,0 +1,12 @@
+if [[ $# -ne 2 ]]; then
+    echo "Usage: $0 pattern file"
+    exit 1
+else
+    if [[ -f /usr/local/bin/sed ]]; then
+        LC_ALL=C /usr/local/bin/sed -i "/$1/d" $2
+    elif [[ -f /usr/local/bin/gsed ]]; then
+        LC_ALL=C /usr/local/bin/gsed -i "/$1/d" $2
+    elif [[ -f /usr/bin/sed ]]; then
+        LC_ALL=C sed -i '' "/$1/d" $2
+    fi
+fi

@@ -1,0 +1,11 @@
+if [ ! "$#" -gt 0 ] ; then
+	echo "Usage: $0 file1 file2 ..." >&2
+	return -1
+fi
+for file in $@; do
+	if [ -f $file ] ; then
+		echo "Emptying $file ..."
+		cp /dev/null $file
+	fi
+done
+echo 'Done!'

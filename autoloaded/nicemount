@@ -1,0 +1,5 @@
+# -------------------------------------------------------------------
+# https://goo.gl/9xc1tu
+# displays mounted drive information in a nicely formatted manner
+# -------------------------------------------------------------------
+(echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ;

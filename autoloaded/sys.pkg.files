@@ -1,0 +1,5 @@
+if [[ $# > 0 ]]; then
+	pkgutil --files $1
+else
+	echo "$0 name.pkg"
+fi

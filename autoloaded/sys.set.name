@@ -1,0 +1,8 @@
+if [[ $# -eq 0 ]]; then
+    echo "Usage $0 <hostname>"
+    return
+else
+    sudo scutil --set ComputerName "$1"
+    sudo scutil --set LocalHostName "$1"
+    sudo scutil --set HostName "$1"
+fi

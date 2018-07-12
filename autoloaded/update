@@ -1,12 +1,12 @@
-#!/usr/bin/env sh
-# vim:syntax=sh
-# vim:filetype=sh
+#!/usr/bin/env zsh
+# vim:syntax=zsh
+# vim:filetype=zsh
 
 #
 # Helper Functions
 # http://apple.stackexchange.com/a/96810/7647
 #
-update() {
+#update() {
 	local brew="echo ; echo 'UPDATING HOMEBREW'; echo ; brew update; brew upgrade; brew cleanup;"
 	local cask="echo ; echo 'UPDATING CASK'; echo ; brew cask upgrade; "
 	local fzf="echo ; echo 'UPDATING fzf'; echo ; (cd ~/.fzf; git pull);"
@@ -19,4 +19,4 @@ update() {
 	#local pip3="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U -q"
 	local zshconfig="echo ; echo 'UPDATING ZSH-CONFIG'; echo ; cd ${HOME}/.zsh-config; git pull && git submodule update --init --recursive ;"
 	sh -c $brew$cask$fzf$zshconfig
-}
+#}

@@ -1,77 +1,59 @@
+#!/usr/bin/env zsh
 # vim:syntax=sh
 # vim:filetype=sh
 
+# system executables
+#export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec
+# local system binaries
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+
 #-----------------------------------------------------
-# Only zsh specific stuffs
+# ensure to only execute on ZSH
+# https://stackoverflow.com/a/9911082/339302
 [ ! -n "$ZSH_VERSION" ] && return
 
-export SCRIPTS=${HOME}/scripts
+#-----------------------------------------------------
+# Setting autoloaded functions
+#
+my_zsh_fpath=${ZSHCONFIG}/autoloaded
 
-function check_and_source(){
-	if [[ -f "$1" ]]; then
-		source "$1"
-	else
-		echo "Could not source file $1."
-	fi
-	return
-}
+fpath=($my_zsh_fpath $fpath)
 
-function quiet_check_and_source(){
-	[[ -f "$1" ]] && source "$1"
-}
+if [[ -d "$my_zsh_fpath" ]]; then
+    for func in $my_zsh_fpath/*; do
+        autoload -Uz ${func:t}
+    done
+fi
+unset my_zsh_fpath
 
 #-----------------------------------------------------
-# check whether a command exists,
-# if exists, return 0, otherwise return -1
-function command_exists(){
-    if [[ $# -ne 1 ]]; then
-        echo "Usage $0 command"
-    else
-        command -v $1 >/dev/null 2>&1 && echo "YES" && return 0
-    fi
-    return -1
-}
+# Load the plugins before scripts
+#
+source ${ZSHCONFIG}/antibody.zsh
 
-#-----------------------------------------------------
-check_and_source ${ZSHCONFIG}/completion.sh
-check_and_source ${ZSHCONFIG}/dropbox.sh
-check_and_source ${ZSHCONFIG}/macos.sh
-check_and_source ${ZSHCONFIG}/prompts.sh
-check_and_source ${ZSHCONFIG}/system.sh
-check_and_source ${ZSHCONFIG}/tex.sh
-check_and_source ${ZSHCONFIG}/updates.sh
-check_and_source ${ZSHCONFIG}/vim.sh
-check_and_source ${ZSHCONFIG}/virtualbox.sh
-
-eval $( gdircolors -b ${ZSHCONFIG}/dircolors-custom )
+source ${ZSHCONFIG}/zsh-managed-plugins.zsh
 
 #
-# Development stuffs
-check_and_source ${SCRIPTS}/dev-config/_init.sh
+# Load all scripts ${ZSHCONFIG}/lib/*.zsh
+#
+my_zsh_lib=${ZSHCONFIG}/lib
+if [[ -d "$my_zsh_lib" ]]; then
+   for file in $my_zsh_lib/*.zsh; do
+      source $file
+   done
+fi
+unset my_zsh_lib
+
+
 
 #-----------------------------------------------------
-# ZSH customisations
-check_and_source ${ZSHCONFIG}/zsh-custom.sh
+# Development stuffs
+dev_config_init=${SCRIPTS}/dev-config/_init.sh
+
+[[ -f "$dev_config_init"  ]] && source "$dev_config_init"
+
+unset dev_config_init
 
 #-----------------------------------------------------
 # after all, set the PATH for macOS
-if [[ -x /bin/launchctl ]]; then
-    /bin/launchctl setenv PATH $PATH
-fi
-
-#
-# Some private stuffs, if any
-quiet_check_and_source ${HOME}/.private.sh
-
-#
-# direnv
-# https://github.com/direnv/direnv
-# brew install direnv
-#eval "$(direnv hook zsh)"
-
-#-----------------------------------------------------
-# zsh-syntax-highlighting must be sourced at the very end
-#
-# https://github.com/zsh-users/zsh-syntax-highlighting
-#
-check_and_source ${ZSHCONFIG}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -x /bin/launchctl ]] && /bin/launchctl setenv PATH $PATH

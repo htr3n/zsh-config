@@ -1,0 +1,5 @@
+if [[ $# -ne 1 ]]; then
+	echo "Usage: $0 pattern"
+else
+	delete.line.from.file $1 $HISTFILE
+fi

@@ -3,8 +3,10 @@
 #
 # See:
 #		https://unix.stackexchange.com/a/94306/27109
-#		"The format for 256 color escape codes is 38;5;colorN for foreground colors and 48;5;colorN for background colors."
-# 		https://github.com/trapd00r/LS_COLORS
+#		"The format for 256 color escape codes is 38;5;colorN for foreground colors 
+#   and 48;5;colorN for background colors."
+#
+#   https://github.com/trapd00r/LS_COLORS
 #		http://linux-sxs.org/housekeeping/lscolors.html
 #
 # Needs dircolors/gdircolors from GNU coreutils

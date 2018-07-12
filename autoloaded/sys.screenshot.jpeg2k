@@ -1,0 +1,2 @@
+defaults write com.apple.screencapture type jp2
+killall SystemUIServer

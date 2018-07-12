@@ -1,0 +1,7 @@
+if [[ $# > 0 ]]; then
+	pkgutil --only-files --files $1 | tr '\n' '\0' | xargs -n 1 -0 sudo rm -i
+	pkgutil --only-dirs --files $1 | tr '\ n' '\0' | xargs -n 1 -0 sudo rm -ir
+	sudo pkgutil --forget $1
+else
+	echo "$0 name.pkg"
+fi
