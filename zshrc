@@ -3,8 +3,9 @@
 # vim:filetype=zsh
 
 # for profiling zsh
+# https://unix.stackexchange.com/a/329719/27109
 #
-# zmodload zsh/zprof
+#zmodload zsh/zprof
 
 export SCRIPTS=${HOME}/scripts
 
@@ -21,8 +22,8 @@ fi
 #
 # enable auto completion
 # https://gist.github.com/ctechols/ca1035271ad134841284
-# 
-#autoload -Uz compinit 
+#
+#autoload -Uz compinit
 #if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
 #	compinit;
 #else
