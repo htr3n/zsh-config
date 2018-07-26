@@ -11,7 +11,7 @@
 #
 local plugins_list=${ZSHCONFIG}/zsh-antibody-plugins-list
 
-local managed_plugins=${ZSHCONFIG}/lib/zsh-managed-plugins.zsh
+local managed_plugins=${ZSHCONFIG}/zsh-managed-plugins.zsh
 
 function antibody.install(){
     echo 'Installing plugins ... '
