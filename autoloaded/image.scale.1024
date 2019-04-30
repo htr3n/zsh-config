@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: $0 file-name.[png|jpg]"
+    return 1
+fi
+
+if [[ ! -x "/usr/local/bin/convert" ]];then
+    echo "Could not find ImageMagick 'convert'. Please install it."
+    return 1
+fi
+
+file=$(basename -- "$1")
+ext="${file##*.}"
+filename="${file%%.*}"
+tn="${filename}.tn.${ext}"
+echo "convert $1 -scale 1024x $tn"
+convert "$1" -scale 1024x "$tn"

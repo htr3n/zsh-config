@@ -31,6 +31,9 @@ unset my_zsh_fpath
 #
 source ${ZSHCONFIG}/antibody.zsh
 
+# https://github.com/sindresorhus/pure#options
+export PURE_PROMPT_SYMBOL='λ'
+
 source ${ZSHCONFIG}/zsh-managed-plugins.zsh
 
 #

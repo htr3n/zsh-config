@@ -10,3 +10,5 @@
         zcompile "$zcompdump"
     fi
 } &!
+
+eval "$(rbenv init -)"

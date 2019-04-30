@@ -33,8 +33,10 @@ bindkey "^K" kill-whole-line                      # ctrl-k
 bindkey "^A" beginning-of-line                    # ctrl-a
 bindkey "^E" end-of-line                          # ctrl-e
 bindkey "^D" delete-char                          # ctrl-d
-bindkey "^F" forward-char                         # ctrl-f
-bindkey "^B" backward-char                        # ctrl-b
+#bindkey "^F" forward-char                         # ctrl-f
+bindkey "^F" forward-word                         # ctrl-f
+#bindkey "^B" backward-char                        # ctrl-b
+bindkey "^B" backward-word                        # ctrl-b
 
 bindkey -M viins '^a' beginning-of-line
 bindkey -M viins '^e' end-of-line
