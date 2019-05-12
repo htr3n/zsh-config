@@ -24,6 +24,7 @@ fi
 # https://carlosbecker.com/posts/speeding-up-zsh
 #
 autoload -Uz compinit
+
 if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
     compinit;
 else
