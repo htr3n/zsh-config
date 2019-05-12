@@ -27,14 +27,27 @@ fi
 unset my_zsh_fpath
 
 #-----------------------------------------------------
-# Load the plugins before scripts
 #
-source ${ZSHCONFIG}/antibody.zsh
+# Antibody: Load the plugins before scripts
+#
+#source ${ZSHCONFIG}/antibody-init.zsh
+#
+#
+#source ${ZSHCONFIG}/zsh-managed-plugins.zsh
+#
+#-----------------------------------------------------
+
+#-----------------------------------------------------
+#
+source ~/.zplugin/bin/zplugin.zsh
+
+# where plugins are loaded
+source ~/.zsh-config/zplugin-init.zsh
+#
+#-----------------------------------------------------
 
 # https://github.com/sindresorhus/pure#options
 export PURE_PROMPT_SYMBOL='λ'
-
-source ${ZSHCONFIG}/zsh-managed-plugins.zsh
 
 #
 # Load all scripts ${ZSHCONFIG}/lib/*.zsh

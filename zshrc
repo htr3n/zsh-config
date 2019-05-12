@@ -31,7 +31,9 @@ else
     compinit -C;
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# see zplygin-init.zsh with Turbo Mode
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://direnv.net/
-eval "$(direnv hook zsh)"
+# see zplygin-init.zsh with Turbo Mode
+#eval "$(direnv hook zsh)"
