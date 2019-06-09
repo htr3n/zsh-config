@@ -31,9 +31,10 @@ else
     compinit -C;
 fi
 
-# see zplygin-init.zsh with Turbo Mode
+# see zplugin-init.zsh with Turbo Mode
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://direnv.net/
-# see zplygin-init.zsh with Turbo Mode
+# see zplugin-init.zsh
+# https://github.com/zdharma/zplugin/wiki/Direnv-explanation
 #eval "$(direnv hook zsh)"
