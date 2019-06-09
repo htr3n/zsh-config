@@ -8,7 +8,7 @@ $ cd
 # pull the git repos
 $ git clone git@github.com:htr3n/zsh-config.git .zsh-config
 # then link the startup files
-$ sh ~/.zsh-config/bootstrap
+$ zsh ~/.zsh-config/bootstrap.sh
 ```
 
 Log out and login again!!!
@@ -17,7 +17,13 @@ In case you want to have private setting excluded from public Git repos, just cr
 
 ## Plugin Management
 
-Instead of manually installing some ZSH plugins, I use [antibody](https://getantibody.github.io) to manage necessary plugins (some are not working with _antibody_ such as 'fzf', so manual task it is).
+~~Instead of manually installing some ZSH plugins, I use [antibody](https://getantibody.github.io) to manage necessary plugins (some are not working with _antibody_ such as 'fzf', so manual task it is).~~
+
+Recently, I have switched to [zplugin](https://github.com/zdharma/zplugin) with cool Turbo Mode to accelerate the loading and checking of ZSH plugins. Thus, `zplugin` needs to be installed as well.
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+```
 
 Some useful plugins:
 
