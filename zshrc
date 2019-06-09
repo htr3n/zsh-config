@@ -36,15 +36,17 @@ case `uname` in
   Linux)
   ;;
 esac
-# see zplygin-init.zsh with Turbo Mode
+
+# see zplugin-init.zsh with Turbo Mode
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://direnv.net/
-# see zplygin-init.zsh with Turbo Mode
+# see zplugin-init.zsh
+# https://github.com/zdharma/zplugin/wiki/Direnv-explanation
 #eval "$(direnv hook zsh)"
 
 ### Added by Zplugin's installer
-source '/home/htr3n/.zplugin/bin/zplugin.zsh'
+source '~/.zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk

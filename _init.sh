@@ -13,6 +13,29 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 [ ! -n "$ZSH_VERSION" ] && return
 
 #-----------------------------------------------------
+#
+# Antibody: Load the plugins before scripts
+#
+#source ${ZSHCONFIG}/antibody-init.zsh
+#
+#
+#source ${ZSHCONFIG}/zsh-managed-plugins.zsh
+#
+#-----------------------------------------------------
+
+#-----------------------------------------------------
+# bootstrap the zplugin script
+#
+source "$HOME/.zplugin/bin/zplugin.zsh"
+
+# and load the plugins
+source "$HOME/.zsh-config/zplugin-init.zsh"
+#-----------------------------------------------------
+
+# https://github.com/sindresorhus/pure#options
+export PURE_PROMPT_SYMBOL='λ'
+
+#-----------------------------------------------------
 # Setting autoloaded functions
 #
 my_zsh_fpath=${ZSHCONFIG}/autoloaded
@@ -28,28 +51,6 @@ unset my_zsh_fpath
 
 #-----------------------------------------------------
 #
-# Antibody: Load the plugins before scripts
-#
-#source ${ZSHCONFIG}/antibody-init.zsh
-#
-#
-#source ${ZSHCONFIG}/zsh-managed-plugins.zsh
-#
-#-----------------------------------------------------
-
-#-----------------------------------------------------
-#
-source ~/.zplugin/bin/zplugin.zsh
-
-# where plugins are loaded
-source ~/.zsh-config/zplugin-init.zsh
-#
-#-----------------------------------------------------
-
-# https://github.com/sindresorhus/pure#options
-export PURE_PROMPT_SYMBOL='λ'
-
-#
 # Load all scripts ${ZSHCONFIG}/lib/*.zsh
 #
 my_zsh_lib=${ZSHCONFIG}/lib
@@ -61,9 +62,9 @@ fi
 unset my_zsh_lib
 
 
-
 #-----------------------------------------------------
 # Development stuffs
+#
 dev_config_init=${SCRIPTS}/dev-config/_init.sh
 
 [[ -f "$dev_config_init"  ]] && source "$dev_config_init"
