@@ -1,6 +1,8 @@
-#!/usr/bin/env sh
-# vim:syntax=sh
-# vim:filetype=sh
+#!/usr/bin/env zsh
+# vim:syntax=zsh
+# vim:filetype=zsh
+
+ZSHCONFIG=${HOME}/.zsh-config
 
 function zsh_bootstrap(){
     echo "Link resource files to ${HOME}"

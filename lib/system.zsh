@@ -7,7 +7,16 @@
 
 # GNU ls aliases
 #
-alias ls='/usr/local/bin/gls --color=auto'
+# For macOS where GNU ls is installed via homebrew as `gls`
+case `uname` in
+  Darwin)
+    alias ls='/usr/local/bin/gls --color=auto'
+  ;;
+  Linux)
+    alias ls='ls --color=auto'
+  ;;
+esac
+#
 alias ll='ls -lFh'     			# long (-l), types classify (-F),human readable (-h)
 alias l='ll'
 alias ls.all='ls -lAFh' 		# long list, show almost all

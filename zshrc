@@ -25,15 +25,26 @@ fi
 #
 autoload -Uz compinit
 
-if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
-    compinit;
-else
-    compinit -C;
-fi
-
+case `uname` in
+  Darwin)
+    if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
+      compinit;
+    else
+      compinit -C;
+    fi
+    ;;
+  Linux)
+  ;;
+esac
 # see zplygin-init.zsh with Turbo Mode
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://direnv.net/
 # see zplygin-init.zsh with Turbo Mode
 #eval "$(direnv hook zsh)"
+
+### Added by Zplugin's installer
+source '/home/htr3n/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
