@@ -44,9 +44,3 @@ esac
 # see zplugin-init.zsh
 # https://github.com/zdharma/zplugin/wiki/Direnv-explanation
 #eval "$(direnv hook zsh)"
-
-### Added by Zplugin's installer
-#source "~/.zplugin/bin/zplugin.zsh"
-#autoload -Uz _zplugin
-#(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
