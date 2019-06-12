@@ -25,6 +25,8 @@ Recently, I have switched to [zplugin](https://github.com/zdharma/zplugin) with 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 ```
 
+Note that `zplugin` installation script will automatically add some commands into the end of `.zshrc` to initialise / load `zplugin`. Nonetheless, `_init.sh` has already the initialisation of `zplugin`, thus, we should remove or comment the parts added by `zplugin` installation script.  
+
 Some useful plugins:
 
 * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
