@@ -34,6 +34,7 @@ case `uname` in
     fi
     ;;
   Linux)
+    # not yet match GNU & BSD stat
   ;;
 esac
 

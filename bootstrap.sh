@@ -5,6 +5,12 @@
 ZSHCONFIG=${HOME}/.zsh-config
 
 function zsh_bootstrap(){
+
+    # need zplugin
+    echo "Cloning zplugin"
+    mkdir ~/.zplugin
+    git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
+
     echo "Link resource files to ${HOME}"
     ln -sf ${ZSHCONFIG}/zlogin ${HOME}/.zlogin
     ln -sf ${ZSHCONFIG}/zprofile ${HOME}/.zprofile
