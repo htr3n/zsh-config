@@ -2,10 +2,12 @@
 # vim:syntax=sh
 # vim:filetype=sh
 
-# system executables
-#export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec
-# local system binaries
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+if [[ "x$SYSTEM" = "xDarwin"  ]]; then
+    # system executables
+    #export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec
+    # local system binaries
+    export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+fi
 
 #-----------------------------------------------------
 # ensure to only execute on ZSH

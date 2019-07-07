@@ -25,7 +25,7 @@ fi
 #
 autoload -Uz compinit
 
-case `uname` in
+case $SYSTEM in
   Darwin)
     if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
       compinit;
