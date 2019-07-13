@@ -8,7 +8,7 @@
 # GNU ls aliases
 #
 # For macOS where GNU ls is installed via homebrew as `gls`
-case `uname` in
+case $SYSTEM in
   Darwin)
     alias ls='/usr/local/bin/gls --color=auto'
   ;;
@@ -64,7 +64,7 @@ function handle-multi-arguments(){
 # macOS specific
 #
 # Check if running on macOS, otherwise stop here
-[[ ! "$(uname -s)" == "Darwin" ]] && return
+[[ ! "x$SYSTEM" == "xDarwin" ]] && return
 
 # /etc/zprofile is loaded and invokes
 # /usr/libexec/path_helper that might slow down start-up.
