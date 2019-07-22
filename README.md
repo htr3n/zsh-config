@@ -1,5 +1,7 @@
 # My ZSH Configurations
 
+The configurations are for my macOS workstation and therefore contain some macOS-specific code and commands.
+
 ## Quick Start
 
 ```sh
