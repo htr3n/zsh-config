@@ -8,7 +8,7 @@ The configurations are for my macOS workstation and therefore contain some macOS
 # get to the home folder
 $ cd
 # pull the git repos
-$ git clone git@github.com:htr3n/zsh-config.git .zsh-config
+$ git clone https://github.com/htr3n/zsh-config.git .zsh-config
 # then link the startup files
 $ zsh ~/.zsh-config/bootstrap.sh
 ```
