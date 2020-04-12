@@ -48,4 +48,8 @@ esac
 
 
 # Private script here
-[ -f ~/.private.zsh ] && source ~/.private.zsh
+if [ -d ~/.private ]; then
+    for f in ~/.private/*sh; do
+        source "$f"
+    done
+fi
