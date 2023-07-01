@@ -4,25 +4,20 @@
 
 ZSHCONFIG=${HOME}/.zsh-config
 
-function zsh_bootstrap(){
+ZI_HOME_DIR="${HOME}/.zi"
+ZI_BIN_DIR="${ZI_HOME_DIR}/bin"
 
-    # need zplugin
-    echo "Cloning zplugin"
-    mkdir ~/.zplugin
-    git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
+echo "Cloning zi repository"
 
-    echo "Link resource files to ${HOME}"
-    ln -sf ${ZSHCONFIG}/zlogin ${HOME}/.zlogin
-    ln -sf ${ZSHCONFIG}/zprofile ${HOME}/.zprofile
-    ln -sf ${ZSHCONFIG}/zshenv ${HOME}/.zshenv
-    ln -sf ${ZSHCONFIG}/zshrc ${HOME}/.zshrc
-    echo "Done!"
-}
+mkdir -p "${ZI_HOME_DIR}"
 
-function zsh_cleanup(){
-    echo "Clean up links to resource files at ${HOME}"
-    rm -f ${HOME}/.zlogin ${HOME}/.zprofile ${HOME}/.zshenv ${HOME}/.zshrc
-    echo "Done!"
-}
+git clone https://github.com/z-shell/zi.git "${ZI_BIN_DIR}"
 
-zsh_bootstrap
+echo "Link ZSH resource files to '${HOME}'"
+
+ln -srnf "${ZSHCONFIG}/zlogin" "${HOME}/.zlogin"
+ln -srnf "${ZSHCONFIG}/zprofile" "${HOME}/.zprofile"
+ln -srnf "${ZSHCONFIG}/zshenv" "${HOME}/.zshenv"
+ln -srnf "${ZSHCONFIG}/zshrc" "${HOME}/.zshrc"
+
+echo "Done!"

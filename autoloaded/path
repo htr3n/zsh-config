@@ -2,10 +2,10 @@
 # display a neatly formatted PATH content with colors
 # -------------------------------------------------------------------
 
-echo $PATH | tr ":" "\n" | \
-awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
-			sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
-			sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
-			sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
-			sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
+echo "$PATH" | tr ":" "\n" | \
+awk "{ sub(\"/usr\",   \"\x1b[0;32m/usr\x1b[0m\"); \
+			sub(\"/bin\",   \"\x1b[0;34m/bin\x1b[0m\"); \
+			sub(\"/opt\",   \"\x1b[0;36m/opt\x1b[0m\"); \
+			sub(\"/sbin\",  \"\x1b[0;35m/sbin\x1b[0m\"); \
+			sub(\"/local\", \"\x1b[0;33m/local\x1b[0m\"); \
 			print }"

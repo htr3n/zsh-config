@@ -19,17 +19,17 @@ In case you want to have private setting excluded from public Git repos, just cr
 
 ## Plugin Management
 
-~~Instead of manually installing some ZSH plugins, I use [antibody](https://getantibody.github.io) to manage necessary plugins (some are not working with _antibody_ such as 'fzf', so manual task it is).~~
-
-Recently, I have switched to [zplugin](https://github.com/zdharma/zplugin) with cool Turbo Mode to accelerate the loading and checking of ZSH plugins. Thus, `zplugin` needs to be installed as well.
+Instead of manually installing ZSH plugins, I use [Zi](https://wiki.zshell.dev/), which is a continuing work of [zplugin](https://github.com/zdharma/zplugin), with cool Turbo Mode to accelerate the loading and checking of ZSH plugins. Thus, `zi` needs to be installed as well.
 
 ```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+sh -c "$(curl -fsSL get.zshell.dev)" -- -i skip -b main
 ```
 
-Note that `zplugin` installation script will automatically add some commands into the end of `.zshrc` to initialise / load `zplugin`. Nonetheless, `_init.sh` has already the initialisation of `zplugin`, thus, we should remove or comment the parts added by `zplugin` installation script.  
+Note that `zi` installation script will automatically add some commands into the end of `.zshrc` to initialise / load `zi`. Nonetheless, `_init.sh` has already the initialisation of `zi`, thus, we should remove or comment the parts added by `zi` installation script.  
 
-Some useful plugins:
+If `Zi` is set up properly, you can use many handy commands, for instance, updating all or some plugins with `zi update` , removing a plugin `zi delete plugin_name`.
+
+Some useful ZSH plugins:
 
 * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 * [zsh-completions](https://github.com/zsh-users/zsh-completions)
@@ -42,4 +42,4 @@ I developed most of the configuration on my own but nevertheless learned a lot f
 
 ## License
 
-<3 MIT License.
+<3 [MIT License](LICENSE.txt).

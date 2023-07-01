@@ -2,6 +2,12 @@
 # vim:syntax=sh
 # vim:filetype=sh
 
+#-----------------------------------------------------
+# ensure to only execute on ZSH
+# https://stackoverflow.com/a/9911082/339302
+[ ! -n "$ZSH_VERSION" ] && return
+
+# For MacOS
 if [[ "x$SYSTEM" = "xDarwin"  ]]; then
     # system executables
     #export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/libexec
@@ -10,28 +16,17 @@ if [[ "x$SYSTEM" = "xDarwin"  ]]; then
 fi
 
 #-----------------------------------------------------
-# ensure to only execute on ZSH
-# https://stackoverflow.com/a/9911082/339302
-[ ! -n "$ZSH_VERSION" ] && return
+# Load zinit
+export ZI_HOME_DIR="${HOME}/.zi"
+export ZI_BIN_DIR="${ZI_HOME_DIR}/bin"
 
-#-----------------------------------------------------
-#
-# Antibody: Load the plugins before scripts
-#
-#source ${ZSHCONFIG}/antibody-init.zsh
-#
-#
-#source ${ZSHCONFIG}/zsh-managed-plugins.zsh
-#
-#-----------------------------------------------------
-
-#-----------------------------------------------------
-# bootstrap the zplugin script
-#
-source "$HOME/.zplugin/bin/zplugin.zsh"
-
-# and load the plugins
-source "$HOME/.zsh-config/zplugin-init.zsh"
+# and the plugins
+if [[ -f "${ZI_BIN_DIR}/zi.zsh" ]]; then
+    source "${ZI_BIN_DIR}/zi.zsh"
+else
+    echo "The Zi init script does not exist at '${ZI_BIN_DIR}/zi.zsh'"
+    exit 1
+fi
 #-----------------------------------------------------
 
 # https://github.com/sindresorhus/pure#options

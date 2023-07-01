@@ -6,7 +6,7 @@
 # ZSH HISTORY
 #
 export HISTFILE=${HOME}/.history
-export HISTSIZE=10000
+export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
 #
 setopt EXTENDED_HISTORY			    # write in the ":start:elapsed;command" format

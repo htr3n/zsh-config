@@ -24,5 +24,3 @@
         zrecompile -pq $f
     done
 ) &!
-
-#eval "$(rbenv init -)"
